@@ -11,6 +11,21 @@ $Info=[
     ['Name'=>'2014 Rossignol District Snowboard', 'Cat'=>"$vid[4]", 'Price'=>'7500', 'URL'=>'img/lot-5.jpg'],
     ['Name'=>'2014 Rossignol District Snowboard', 'Cat'=>"$vid[5]", 'Price'=>'7500', 'URL'=>'img/lot-6.jpg']
 ];
+function format_sum(int $number):string
+{
+    $decimals = 0;
+    $dec_point = ".";
+    $thousands_sep = " ";
+
+    $result = number_format(
+        ceil($number),
+        $decimals,
+        $dec_point,
+        $thousands_sep
+    );
+
+    return $result . '<b class="rub">р</b>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -98,7 +113,7 @@ $Info=[
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount"><?=$newI["Price"]?></span>
-                            <span class="lot__cost">цена<b class="rub">р</b></span>
+                            <span class="lot__cost"><?=format_sum($newI['Price'])?></span>
                         </div>
                         <div class="lot__timer timer">
                                                     12:23
