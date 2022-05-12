@@ -1,6 +1,5 @@
 <?php
 $is_auth = rand(0, 1);
-
 $user_name = 'Paul'; // укажите здесь ваше имя
 $vid = array("Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты","Разное");
 $Info=[
@@ -26,6 +25,14 @@ function format_sum(int $number):string
 
     return $result . '<b class="rub">р</b>';
 }
+function timer()
+{
+    $date=strtotime('2022-05-12 24:00');
+    $nowtime= time();
+    $difference=$date-$nowtime;
+    return gmdate('H:i', $difference);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -116,8 +123,8 @@ function format_sum(int $number):string
                             <span class="lot__cost"><?=format_sum($newI['Price'])?></span>
                         </div>
                         <div class="lot__timer timer">
-                                                    12:23
-            </div>
+                                                    <?= timer()?>
+                                                        </div>
                     </div>
                 </div>
             </li>
