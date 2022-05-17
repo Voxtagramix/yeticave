@@ -54,7 +54,7 @@ CREATE TABLE `categories` (
 
 CREATE TABLE `lots` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
+  `lot_name` varchar(100) NOT NULL,
   `description` text NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_winner` int(11) NOT NULL,
@@ -74,7 +74,7 @@ CREATE TABLE `lots` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `user_name` varchar(50) NOT NULL,
   `avatar` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(50) NOT NULL,

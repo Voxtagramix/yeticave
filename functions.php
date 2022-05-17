@@ -1,4 +1,5 @@
 <?php
+require_once('data.php');
 function format_sum(int $number):string
 {
     $decimals = 0;

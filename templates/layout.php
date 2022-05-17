@@ -51,7 +51,7 @@
     </header>
 
     <main class="container">
-        <?=$content?>
+        <?=$main?>
     </main>
 </div>
 
@@ -62,7 +62,7 @@
             foreach($vid as $new)
             {?>
                 <li class="nav__item">
-                    <a href="pages/all-lots.html"><?=$new?></a>
+                    <a href="pages/all-lots.html"><?=$new["name"]?></a>
                 </li>
             <?php } ?>
             <li class="nav__item">
