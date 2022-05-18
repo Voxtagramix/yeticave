@@ -1,5 +1,6 @@
 <?php
-$connection = new mysqli('localhost', 'root', '', 'shema');
+$is_auth = rand(0, 1);
+$connection = new mysqli('127.0.0.1', 'root', '', 'shema');
 $query="Select * from categories";
 $categories_result=$connection->query($query);
 $category=$categories_result->fetch_all(MYSQLI_ASSOC);

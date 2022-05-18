@@ -1,5 +1,6 @@
 <?php
 require_once('data.php');
+$is_auth = rand(0, 1);
 function format_sum(int $number):string
 {
     $decimals = 0;
