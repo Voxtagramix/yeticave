@@ -33,15 +33,15 @@ Select a.name as name,
        id_winner
 from lots as a
        left join bids b
-                 on a.id = b.id_lot
-       inner join categories c on a.id_category = c.id
+                 on a.id_lotting = b.id_lot
+       inner join categories c on a.id_category = c.id_cat
 group by a.name, start_price, img,data_start,id_winner
 having ISNULL(id_winner)
 order by data_start desc;
 /*получить самые новые, открытые лоты. Каждый лот должен включать
 название, стартовую цену, ссылку на изображение, цену последней ставки,
 количество ставок, название категории;*/
-select * from lots inner join categories c on lots.id_category=c.id where lots.id=1;/*показать лот по его id. Получите также название категории, к которой
+select * from lots inner join categories c on lots.id_category=c.id where lots.id_lotting=1;/*показать лот по его id. Получите также название категории, к которой
 принадлежит лот*/
 Update `lots` SET `name`='Изменен' WHERE `id`=1;/*Обновить название*/
-select * from bids inner join lots on bids.id_lot=lots.id where lots.id=1;/*получить список самых свежих ставок для лота по его идентификатору;*/
+select * from bids inner join lots on bids.id_lot=lots.id where lots.id_lotting=1;/*получить список самых свежих ставок для лота по его идентификатору;*/

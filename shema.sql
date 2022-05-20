@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bids` (
-  `id` int(11) NOT NULL,
+  `id_bid` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_lot` int(11) NOT NULL,
   `price` int(11) NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE `bids` (
 --
 
 CREATE TABLE `categories` (
-  `id` int(11) NOT NULL,
+  `id_cat` int(11) NOT NULL,
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -53,7 +53,7 @@ CREATE TABLE `categories` (
 --
 
 CREATE TABLE `lots` (
-  `id` int(11) NOT NULL,
+  `id_lotting` int(11) NOT NULL,
   `lot_name` varchar(100) NOT NULL,
   `description` text NOT NULL,
   `id_user` int(11) NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE `lots` (
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id_use` int(11) NOT NULL,
   `user_name` varchar(50) NOT NULL,
   `avatar` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,

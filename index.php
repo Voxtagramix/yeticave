@@ -2,7 +2,7 @@
 require_once('functions.php');
 require_once "data.php";
 $is_auth = rand(0, 1);
-$user_name = 'Paul'; // укажите здесь ваше имя
+$user_name = 'Павел'; // укажите здесь ваше имя
 
 $data_main=['vid'=>$category, 'info'=>$lot];
 $main=include_template("index.php", $data_main);

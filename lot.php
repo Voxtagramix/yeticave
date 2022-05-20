@@ -3,7 +3,7 @@ require_once "functions.php";
 require_once "data.php";
 $ID_base=0;
 $is_auth = rand(0, 1);
-$user_name = 'Paul';
+$user_name = 'Павел';
 if(isset($_GET["id"]))
 {
     $ID_base = $_GET["id"];

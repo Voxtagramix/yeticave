@@ -1,5 +1,5 @@
 <?php
-require_once('data.php');
+//require_once('data.php');
 $is_auth = rand(0, 1);
 function format_sum(int $number):string
 {
@@ -35,5 +35,16 @@ function include_template($name, $data) {
     $result = ob_get_clean();
     return $result;
 }
+function connection(): mysqli
+{
+    return new mysqli('127.0.0.1','root','','shema');
+}
+function categories(mysqli $connection): array
+{
+    $query = "Select * from categories order by id_cat";
+    $category_result = $connection->query($query);
+    return $category_result->fetch_all(MYSQLI_ASSOC);
+}
+
 ?>
 
