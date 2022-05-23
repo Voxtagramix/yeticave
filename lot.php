@@ -2,8 +2,6 @@
 require_once "functions.php";
 require_once "data.php";
 $ID_base=0;
-$is_auth = rand(0, 1);
-$user_name = 'Павел';
 if(isset($_GET["id"]))
 {
     $ID_base = $_GET["id"];
@@ -20,12 +18,10 @@ if(isset($_GET["id"]))
     }
 }
 
-$page_cont = include_template('lot.php', ['info' => $lot, 'vid' => $category, 'currentLot' => $currentLot, 'is_auth' => $is_auth]);
+$page_cont = include_template('lot.php', ['info' => $lot, 'vid' => $category, 'currentLot' => $currentLot]);
 $layout_content = include_template('layout.php', [
     'main' => $page_cont,
     'vid' => $category,
-    'is_auth' => $is_auth,
-    'user_name' => $user_name,
     'title' => $currentLot["lot_name"]]);
 
 print ($layout_content);
