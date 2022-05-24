@@ -3,7 +3,7 @@ require_once "functions.php";
 require_once "data.php";
 $connection = connection();
 $categories = categories($connection);
-if(!isset($_SESSION['user_name']))
+if(!isset($_COOKIE['user_name']))
 {
     $main_page = include_template('403.php',array());
     print_r(
@@ -45,7 +45,7 @@ else {
             );
         } else {
 
-            $usering=$_SESSION['user_name'];
+            $usering=$_COOKIE['user_name'];
             $name = $_FILES['image']['name'];
             $to = "img/$name";
             $category1 = $_POST['category'];
@@ -89,12 +89,12 @@ values
     } else {
         $is_auth = 1;
         $user_name = "Павел";
-        $main_page = include_template('add-lot.php', ['vid' => $category, 'error' => null, 'fatal' => false,]);
+        $main_page = include_template('add-lot.php', ['vid' => $categories, 'error' => null, 'fatal' => false,]);
         print_r(
             include_template
             (
                 "layout.php",
-                ['vid' => $category,
+                ['vid' => $categories,
                     "is_auth" => $is_auth,
                     "user_name" => $user_name,
                     "main" => $main_page,

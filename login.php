@@ -31,9 +31,8 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
     if (!$e) {
         $user_name = $user['user_name'];
         $avatar = $user['avatar'];
-        session_start();
-        $_SESSION['user_name'] = $user_name;
-        $_SESSION['avatar'] = $avatar;
+        setcookie('user_name', $user_name, time()+3600);
+        setcookie('avatar', $avatar,time()+3600);
         header("location:index.php");
     } else {
         $main_page = include_template('login.php', ['vid' => $categories, "errors" => $errors]);
