@@ -16,7 +16,8 @@ if(!isset($_COOKIE['user_name']))
     );
 }
 else {
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
         $e = false;
         $error = array();
         if ($_FILES['image']['name'] == "" || !exif_imagetype($_FILES['image']['tmp_name'])) {
@@ -86,17 +87,15 @@ values
             header("location:lot.php?id=$ID_Kit");
         }
 
-    } else {
-        $is_auth = 1;
-        $user_name = "Павел";
+    }
+    else
+    {
         $main_page = include_template('add-lot.php', ['vid' => $categories, 'error' => null, 'fatal' => false,]);
         print_r(
             include_template
             (
                 "layout.php",
                 ['vid' => $categories,
-                    "is_auth" => $is_auth,
-                    "user_name" => $user_name,
                     "main" => $main_page,
                     "title" => "Добавление лота"]
             )
