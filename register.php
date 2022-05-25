@@ -26,9 +26,16 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 
     $zapros ="SELECT email from users where email='$email'";
     $result=$connection->query($zapros);
-    if($result->num_rows != 0)
+    $zapros2 ="SELECT email from users where contacts='$contacts'";
+    $result2=$connection->query($zapros2);
+    if($result->num_rows!= 0)
     {
         $errors['email']="Пользователь с такой почтой уже существует";
+        $e=1;
+    }
+    if($result2->num_rows != 0)
+    {
+        $errors['message']="Уже использованный номер телефона";
         $e=1;
     }
 
