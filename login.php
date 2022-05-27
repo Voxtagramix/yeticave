@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
         $e = 1;
     }
     $user = $result1->fetch_array();
-    if (($password != $user['password']) && $errors['password'] === 0) {
+    if (!password_verify($password,$user['password']) && $errors['password']===0) {
         $errors['password'] = "Неверный пароль";
         $e = 1;
     }
