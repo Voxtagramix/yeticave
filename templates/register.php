@@ -29,7 +29,7 @@
     <div class="form__item <?= isset($errors['message'])&&$errors['message']?"form__item--invalid":"" ?> form__item--wide">
         <label for="message">Контактные данные <sup>*</sup></label>
         <textarea id="message" name="message" placeholder="Напишите как с вами связаться"><?=$_POST['message']??""?></textarea>
-        <span class="form__error">Напишите как с вами связаться</span>
+        <span class="form__error"><?=$errors['message']??""?></span>
     </div>
     <span class="form__error form__error--bottom">Пожалуйста, исправьте ошибки в форме.</span>
     <button type="submit" class="button">Зарегистрироваться</button>

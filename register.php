@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
         $errors['email']="Почта не соответствует формату";
         $e=1;
     }
-    $query = "SELECT user_name from users where email='{$_POST['email']}'; SELECT user_name from users where  user_name='{$_POST['name']}'";
+    $query = "SELECT user_name from users where email='{$_POST['email']}'; SELECT user_name from users where  user_name='{$_POST['name']}'; SELECT contacts from users where contacts='{$_POST['message']}'";
     $connection->multi_query($query);
     $result1 =$connection->store_result();
     $result = $result1->fetch_array(MYSQLI_ASSOC);
@@ -42,11 +42,22 @@ if($_SERVER['REQUEST_METHOD']=="POST")
     $connection->next_result();
     $result1 =$connection->store_result();
     $result = $result1->fetch_array(MYSQLI_ASSOC);
+
+    if($result1->num_rows!==0 && $errors['message']===0)
+    {
+        $errors['message']="Телефон уже зарегистрирован";
+        $e=1;
+    }
+
+    $connection->next_result();
+    $result1 =$connection->store_result();
+    $result = $result1->fetch_array(MYSQLI_ASSOC);
     if($result1->num_rows!==0 && $errors['name']===0)
     {
         $errors['name']="Пользователь с таким именем уже зарегистрирован";
         $e=1;
     }
+
     $file = $_FILES['image']['tmp_name'];
     $to = "img/{$_FILES['image']['name']}";
     if($file=="")
